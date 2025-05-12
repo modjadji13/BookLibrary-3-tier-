@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="BookLibrary" default="default" basedir=".">
+    <description>Builds, tests, and runs the project BookLibrary.</description>
+    <import file="nbproject/build-impl.xml"/>
+
+    <target name="-pre-compile">
+        <!-- Copy H2 JAR from lib to WEB-INF/lib -->
+        <echo message="Copying JARs from lib to ${build.web.dir}/WEB-INF/lib"/>
+        <copy todir="${build.web.dir}/WEB-INF/lib" failonerror="true">
+            <fileset dir="lib" includes="*.jar" excludes=""/>
+        </copy>
+        <!-- Copy JSP files from web to build/web -->
+        <echo message="Copying JSPs from web to ${build.web.dir}"/>
+        <copy todir="${build.web.dir}" failonerror="true">
+            <fileset dir="web" includes="**/*.jsp" excludes=""/>
+        </copy>
+    </target>
+</project>
